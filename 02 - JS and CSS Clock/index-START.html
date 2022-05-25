@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JS + CSS Clock</title>
 </head>
+
 <body>
 
-
-    <div class="clock">
-      <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
-      </div>
+  <div class="clock">
+    <div class="clock-face">
+      <div class="hand hour-hand"></div>
+      <div class="hand min-hand"></div>
+      <div class="hand second-hand"></div>
     </div>
-
+  </div>
 
   <style>
     html {
@@ -43,10 +43,10 @@
       position: relative;
       padding: 2rem;
       box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
+        0 0 0 4px rgba(0, 0, 0, 0.1),
         inset 0 0 0 3px #EFEFEF,
         inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
+        0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .clock-face {
@@ -63,42 +63,41 @@
       position: absolute;
       top: 50%;
     }
-
   </style>
-
   <script>
     const hands = document.querySelectorAll('.hand');
     //tansform-origin set corresponding position at which transformation happens at(default is 50% for center position)
     hands.forEach(hand => {
-    hand.style.transform = 'rotate(90deg)';
-    hand.style.transformOrigin = '100%';
-    hand.style.transition = '.05s';
-    hand.style.transitionTimingFunction = 'cubic-bezier(0.17,1.73,0.61,1.83)';
-  });
+      hand.style.transform = 'rotate(90deg)';
+      hand.style.transformOrigin = '100%';
+      hand.style.transition = '.05s';
+      hand.style.transitionTimingFunction = 'cubic-bezier(0.17,1.73,0.61,1.83)';
+    });
 
     const secondHand = document.querySelector('.second-hand');
     const minuteHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
 
-    function setTime(){
+    function setTime() {
       const time = new Date();
       //for second-hand
       const second = time.getSeconds();
-      const secondDegree = (360/60 * second);
-      secondHand.style.transform = `rotate(${secondDegree+90}deg)`;
+      const secondDegree = (360 / 60 * second);
+      secondHand.style.transform = `rotate(${secondDegree + 90}deg)`;
 
       //for min-hand
       const minute = time.getMinutes();
-      const minuteDegree = (360/60 * minute);
-      minuteHand.style.transform = `rotate(${minuteDegree+90}deg)`;
+      const minuteDegree = (360 / 60 * minute);
+      minuteHand.style.transform = `rotate(${minuteDegree + 90}deg)`;
 
       //for hour-hand
       const hour = time.getHours();
-      const hourDegree = (360/12 * hour);
-      hourHand.style.transform = `rotate(${hourDegree+90}deg)`;
+      const hourDegree = (360 / 12 * hour);
+      hourHand.style.transform = `rotate(${hourDegree + 90}deg)`;
     };
 
     setInterval(setTime, 1000);
   </script>
 </body>
+
 </html>
