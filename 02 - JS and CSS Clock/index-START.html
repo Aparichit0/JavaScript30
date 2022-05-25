@@ -78,7 +78,7 @@
       //for second-hand
       const second = time.getSeconds();
       const secondDegree = (360/60 * second);
-      secondHand.style.transform = `rotate(${secondDegree}deg)`;
+      secondHand.style.transform = `rotate(${secondDegree+90}deg)`;
     };
 
     setInterval(setTime, 1000);
