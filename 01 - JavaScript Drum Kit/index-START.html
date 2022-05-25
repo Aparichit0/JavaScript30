@@ -60,9 +60,11 @@
   <script>
     document.addEventListener('keydown', e => {
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
       if(!audio) return; //stop when there is no corresponding audio element
       audio.currentTime = 0; //reset audio playback to handle faster keypresses
       audio.play();
+      key.classList.add('playing');
     });
   </script>
 </body>
