@@ -68,9 +68,20 @@
 
   <script>
     const hands = document.querySelectorAll('.hand');
+    //tansform-origin set corresponding position at which transformation happens at(default is 50% for center position)
     hands.forEach(hand => hand.style.cssText = 'transform: rotate(90deg); transform-origin: 100%');
 
+    const secondHand = document.querySelector('.second-hand');
 
+    function setTime(){
+      const time = new Date();
+      //for second-hand
+      const second = time.getSeconds();
+      const secondDegree = (360/60 * second);
+      secondHand.style.transform = `rotate(${secondDegree}deg)`;
+    };
+
+    setInterval(setTime, 1000);
   </script>
 </body>
 </html>
