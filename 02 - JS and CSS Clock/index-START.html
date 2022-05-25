@@ -72,6 +72,8 @@
     hands.forEach(hand => {
     hand.style.transform = 'rotate(90deg)';
     hand.style.transformOrigin = '100%';
+    hand.style.transition = '.05s';
+    hand.style.transitionTimingFunction = 'cubic-bezier(0.17,1.73,0.61,1.83)';
   });
 
     const secondHand = document.querySelector('.second-hand');
