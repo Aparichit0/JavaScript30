@@ -69,7 +69,10 @@
   <script>
     const hands = document.querySelectorAll('.hand');
     //tansform-origin set corresponding position at which transformation happens at(default is 50% for center position)
-    hands.forEach(hand => hand.style.cssText = 'transform: rotate(90deg); transform-origin: 100%');
+    hands.forEach(hand => {
+    hand.style.transform = 'rotate(90deg)';
+    hand.style.transformOrigin = '100%';
+  });
 
     const secondHand = document.querySelector('.second-hand');
     const minuteHand = document.querySelector('.min-hand');
